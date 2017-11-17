@@ -1,3 +1,4 @@
+import { SobrePage } from './../pages/sobre/sobre';
 import { ListarUsuariosPage } from './../pages/listar-usuarios/listar-usuarios';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,13 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { UsuariosServiceProvider } from './../providers/usuarios-service/usuarios-service';
+import { AppUtilsProvider } from '../providers/app-utils/app-utils';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    ListarUsuariosPage
+    ListarUsuariosPage,
+    SobrePage
   ],
   imports: [
     BrowserModule,
@@ -27,13 +30,15 @@ import { UsuariosServiceProvider } from './../providers/usuarios-service/usuario
     MyApp,
     HomePage,
     LoginPage,
-    ListarUsuariosPage
+    ListarUsuariosPage,
+    SobrePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuariosServiceProvider
+    UsuariosServiceProvider,
+    AppUtilsProvider
   ]
 })
 export class AppModule {}

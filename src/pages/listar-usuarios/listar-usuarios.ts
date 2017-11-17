@@ -1,3 +1,4 @@
+import { AppUtilsProvider } from './../../providers/app-utils/app-utils';
 import { MyApp } from './../../app/app.component';
 import { UsuariosServiceProvider } from './../../providers/usuarios-service/usuarios-service';
 import { HomePage } from './../home/home';
@@ -19,7 +20,7 @@ import { NavController, NavParams } from 'ionic-angular';
     templateUrl: 'listar-usuarios.html',
 })
 export class ListarUsuariosPage {
-    constructor(public navCtrl: NavController, public navParams: NavParams, private service: UsuariosServiceProvider, public app: MyApp) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private service: UsuariosServiceProvider, private utils: AppUtilsProvider) {
     }
 
     ionViewDidLoad() {
@@ -30,9 +31,9 @@ export class ListarUsuariosPage {
 
     deletar(id) {
         if (this.service.deletarUsuario(id)) {
-            this.app.showAlert('Confirmação', 'Usuário deletado com sucesso');
+            this.utils.showAlert('Confirmação', 'Usuário deletado com sucesso');
         }else{
-            this.app.showAlert('Erro', 'Aconteceu um erro');
+            this.utils.showAlert('Erro', 'Aconteceu um erro inesperado');
         }
 
     }

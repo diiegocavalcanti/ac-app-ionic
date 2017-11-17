@@ -1,3 +1,4 @@
+import { AppUtilsProvider } from './../../providers/app-utils/app-utils';
 import { HomePage } from './../home/home';
 import { MyApp } from './../../app/app.component';
 import { Component } from '@angular/core';
@@ -12,7 +13,7 @@ export class LoginPage {
     username: string;
     password: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public app: MyApp) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public app: MyApp, private utils: AppUtilsProvider) {
 
     }
 
@@ -25,7 +26,7 @@ export class LoginPage {
             this.app.openHome();
         } else {
             
-            this.app.showAlert('Atenção', 'Login ou senha incorretos');
+            this.utils.showAlert('Atenção', 'Login ou senha incorretos');
 
 
         }

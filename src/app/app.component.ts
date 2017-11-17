@@ -1,3 +1,4 @@
+import { SobrePage } from './../pages/sobre/sobre';
 import { ListarUsuariosPage } from './../pages/listar-usuarios/listar-usuarios';
 import { HomePage } from './../pages/home/home';
 import { LoginPage } from './../pages/login/login';
@@ -5,7 +6,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AlertController } from 'ionic-angular';
+
 
 
 @Component({
@@ -19,10 +20,11 @@ export class MyApp {
 
     public pages = [
         { titulo: 'Home', component: HomePage },
-        { titulo: 'Usuários', component: ListarUsuariosPage }
+        { titulo: 'Usuários', component: ListarUsuariosPage },
+        { titulo: 'Sobre', component: SobrePage }
     ];
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController) {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -31,14 +33,7 @@ export class MyApp {
         });
     }
 
-    showAlert(title, message) {
-        let alert = this.alertCtrl.create({
-            title: title,
-            subTitle: message,
-            buttons: ['OK']
-        });
-        alert.present();
-    }
+
 
     openPage(component) {
         this.nav.push(component);

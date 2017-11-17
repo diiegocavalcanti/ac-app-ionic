@@ -22,6 +22,7 @@
             </ion-avatar>
             <h2>{{user.nome}}</h2>
             <p>{{user.matricula}}</p>
+            <button item-end ion-button color="danger" (click)="deletar(user.id)"><ion-icon name="trash"></ion-icon></button>
         </ion-item>
     </ion-list>
 

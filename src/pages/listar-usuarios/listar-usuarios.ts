@@ -1,7 +1,8 @@
+import { MyApp } from './../../app/app.component';
 import { UsuariosServiceProvider } from './../../providers/usuarios-service/usuarios-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 
 
@@ -14,22 +15,28 @@ import {  NavController, NavParams } from 'ionic-angular';
 
 
 @Component({
-  selector: 'page-listar-usuarios',
-  templateUrl: 'listar-usuarios.html',
+    selector: 'page-listar-usuarios',
+    templateUrl: 'listar-usuarios.html',
 })
 export class ListarUsuariosPage {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private service: UsuariosServiceProvider, public app: MyApp) {
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ListarUsuariosPage');
+    }
+
+    usuarios = this.service.getUsuarios();
+
+    deletar(id) {
+        if (this.service.deletarUsuario(id)) {
+            this.app.showAlert('Confirmação', 'Usuário deletado com sucesso');
+        }else{
+            this.app.showAlert('Erro', 'Aconteceu um erro');
+        }
+
+    }
 
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private service: UsuariosServiceProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarUsuariosPage');
-  }
-
-  usuarios = this.service.getUsuarios();
-
- 
 
 }

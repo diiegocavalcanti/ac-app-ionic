@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
+import { UsuariosServiceProvider } from './../providers/usuarios-service/usuarios-service';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp)
+  
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -15,11 +15,11 @@ export class HomePage {
   constructor(public navCtrl: NavController, private usuarioService: UsuariosServiceProvider) {
     
   }
- 
-  
+
+  qtde = this.usuarioService.getUsuarios().length + ' Registros';
 
   itensHome = [
-    { titulo: 'Usuários', subtitulo: 'this.qtde', img: 'http://lorempixel.com/400/400/abstract/1/', component: ListarUsuariosPage }
+    { titulo: 'Usuários', subtitulo: this.qtde, img: 'http://lorempixel.com/400/400/abstract/1/', component: ListarUsuariosPage }
   ];
 
 

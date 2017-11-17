@@ -1,3 +1,4 @@
+import { UsuariosServiceProvider } from './../../providers/usuarios-service/usuarios-service';
 import { MyApp } from './../../app/app.component';
 import { ListarUsuariosPage } from './../listar-usuarios/listar-usuarios';
 import { Component } from '@angular/core';
@@ -9,16 +10,20 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+ 
+
+  constructor(public navCtrl: NavController, private usuarioService: UsuariosServiceProvider) {
+    
+  }
+ 
+  
+
   itensHome = [
-    {titulo: 'Usuários', subtitulo: '41 Listings', img: 'http://lorempixel.com/400/400/abstract/1/', component: ListarUsuariosPage}
+    { titulo: 'Usuários', subtitulo: 'this.qtde', img: 'http://lorempixel.com/400/400/abstract/1/', component: ListarUsuariosPage }
   ];
 
-  
-  constructor(public navCtrl: NavController) {
 
-  }
-
-  open(component){
+  open(component) {
     this.navCtrl.push(component);
   }
 

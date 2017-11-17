@@ -18,7 +18,7 @@
     <ion-list>
         <ion-item *ngFor="let user of usuarios">
             <ion-avatar item-start>
-                <img src="https://scontent.frec1-2.fna.fbcdn.net/v/t1.0-9/16603107_1469510069726101_1911088555142596249_n.jpg?oh=04deaf43a14618290c3406b413445f52&oe=5A97BD71">
+                <img src="{{user.img}}">
             </ion-avatar>
             <h2>{{user.nome}}</h2>
             <p>{{user.matricula}}</p>

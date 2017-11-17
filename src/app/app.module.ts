@@ -1,3 +1,4 @@
+import { ListarUsuariosPage } from './../pages/listar-usuarios/listar-usuarios';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { HomePage } from '../pages/home/home';
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ListarUsuariosPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ListarUsuariosPage
   ],
   providers: [
     StatusBar,

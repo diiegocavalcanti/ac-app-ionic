@@ -1,18 +1,34 @@
+import { HomePage } from './../home/home';
+import { MyApp } from './../../app/app.component';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+    selector: 'page-login',
+    templateUrl: 'login.html',
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    username: string;
+    password: string;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public app: MyApp) {
+
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad LoginPage');
+    }
+
+    login() {
+        if (this.username == 'admin' && this.password == '1234') {
+            this.app.openHome();
+        } else {
+            
+            this.app.showAlert('Atenção', 'Login ou senha incorretos');
+
+
+        }
+    }
 
 }

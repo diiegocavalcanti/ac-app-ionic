@@ -8,12 +8,16 @@ module.exports = function(config) {
 
         files: [
             { pattern: './karma-test-shim.js', watched: true },
-            './../src/pages/listar-usuarios/listar-usuarios.ts',
-            './../src/pages/listar-usuarios/listar-usuarios.spec.ts'
+            './../src/pages/login/*.ts',
+            './../src/pages/login/*.spec.ts'
         ],
 
         preprocessors: {
             './karma-test-shim.js': ['webpack', 'sourcemap']
+        },
+        
+        mime: {
+            'text/x-typescript': ['ts', 'tsx']
         },
 
         webpack: webpackConfig,
@@ -37,7 +41,7 @@ module.exports = function(config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         singleRun: false
     };
 

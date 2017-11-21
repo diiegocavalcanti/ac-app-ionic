@@ -1,3 +1,5 @@
+
+import { ListarPokemonsPage } from './../pages/listar-pokemons/listar-pokemons';
 import { SobrePage } from './../pages/sobre/sobre';
 import { ListarUsuariosPage } from './../pages/listar-usuarios/listar-usuarios';
 import { LoginPage } from './../pages/login/login';
@@ -7,10 +9,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { UsuariosServiceProvider } from './../providers/usuarios-service/usuarios-service';
 import { AppUtilsProvider } from '../providers/app-utils/app-utils';
+import { PokeProvider } from '../providers/poke/poke';
+import { HttpClientModule }    from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +24,13 @@ import { AppUtilsProvider } from '../providers/app-utils/app-utils';
     HomePage,
     LoginPage,
     ListarUsuariosPage,
-    SobrePage
+    SobrePage,
+    ListarPokemonsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   
   ],
   bootstrap: [IonicApp],
@@ -31,14 +39,16 @@ import { AppUtilsProvider } from '../providers/app-utils/app-utils';
     HomePage,
     LoginPage,
     ListarUsuariosPage,
-    SobrePage
+    SobrePage,
+    ListarPokemonsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsuariosServiceProvider,
-    AppUtilsProvider
+    AppUtilsProvider,
+    PokeProvider
   ]
 })
 export class AppModule {}

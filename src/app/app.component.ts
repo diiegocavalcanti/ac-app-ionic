@@ -1,3 +1,4 @@
+import { ListarPokemonsPage } from './../pages/listar-pokemons/listar-pokemons';
 import { SobrePage } from './../pages/sobre/sobre';
 import { ListarUsuariosPage } from './../pages/listar-usuarios/listar-usuarios';
 import { HomePage } from './../pages/home/home';
@@ -21,7 +22,8 @@ export class MyApp {
     public pages = [
         { titulo: 'Home', component: HomePage },
         { titulo: 'Usuários', component: ListarUsuariosPage },
-        { titulo: 'Sobre', component: SobrePage }
+        { titulo: 'Sobre', component: SobrePage },
+        { titulo: 'Github', component: ListarPokemonsPage }
     ];
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -32,9 +34,6 @@ export class MyApp {
             splashScreen.hide();
         });
     }
-
-
-
     openPage(component) {
         this.nav.push(component);
     }

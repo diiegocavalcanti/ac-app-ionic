@@ -41,5 +41,11 @@ describe("descreve o teste do appComponent", () => {
 
   });
 
+  it('Devera contar quantos menus tem, 3', () =>    {
+
+    expect(myAppCom.pages.length).toBe(3);
+
+  });
+
 
 });
